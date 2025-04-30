@@ -48,9 +48,9 @@ async def main():
     server = await websockets.serve(
         handle_message,
         "0.0.0.0",  # 监听所有网络接口
-        8765        # 端口号
+        8766        # 端口号
     )
-    print("WebSocket server started on ws://0.0.0.0:8765")
+    print("WebSocket server started on ws://0.0.0.0:8766")
     await server.wait_closed()
 
 if __name__ == "__main__":

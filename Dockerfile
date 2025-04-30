@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.12-slim
 
 # 设置工作目录
 WORKDIR /app
@@ -10,7 +10,7 @@ COPY websocket_server.py .
 RUN pip install websockets
 
 # 暴露端口
-EXPOSE 8765
+EXPOSE 8766
 
 # 启动服务器
 CMD ["python", "websocket_server.py"]
