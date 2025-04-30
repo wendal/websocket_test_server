@@ -17,7 +17,7 @@ async def handle_message(websocket):
                     size = data['echosize']
                     
                     # 验证size是否为整数且在有效范围内
-                    if isinstance(size, int) and 0 < size < 16384:
+                    if isinstance(size, int) and 0 < size < 65536:
                         # 生成随机字符串
                         random_string = ''.join(random.choices(
                             string.ascii_letters + string.digits, 
@@ -28,7 +28,7 @@ async def handle_message(websocket):
                         await websocket.send(random_string)
                     else:
                         await websocket.send(json.dumps({
-                            "error": "echosize must be an integer between 1 and 16383"
+                            "error": "echosize must be an integer between 1 and 65535"
                         }))
                 else:
                     await websocket.send(json.dumps({
